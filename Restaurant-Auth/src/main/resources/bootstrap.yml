@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: stardust-backend
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:106.13.44.15}:${NACOS_PORT:8848}
+      #        namespace: ae9f6b45-952b-4bc6-8e59-285d125b9186
+      #        group: CUSTOM_GROUP
+      # 配置与发现独立参数控制
+      config:
+        server-addr: ${NACOS_HOST:106.13.44.15}:${NACOS_PORT:8848}
+        file-extension: yaml
+      #        namespace: ae9f6b45-952b-4bc6-8e59-285d125b9186
+
+logging:
+  level:
+    com:
+      alibaba:
+        nacos:
+          client:
+            config:
+              impl: error

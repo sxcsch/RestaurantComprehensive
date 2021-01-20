@@ -1,0 +1,102 @@
+#数据源配置
+spring:
+  jms:
+    servicebus:
+      connection-string: ${SERVICE_BUS_CON_STRING:Endpoint=sb://orion-scm-test.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=30zMPS5fHLaFVPBAToFE7F5RnOF/933TgL6Q7XMQAR0=}
+      idle-timeout: ${SERVICE_BUS_IDLE_TIMEOUT:1800000}
+      topic-client-id: ${SERVICE_BUS_TOPIC_CLIENT_ID:client_test_1}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:106.13.44.15}:${MYSQL_PORT:3306}/${DB_NAME:orion_scm}?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&rewriteBatchedStatements=TRUE&allowMultiQueries=true
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:s594678.}
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      stat-view-servlet:
+        enabled: true
+        #        login-username: druid
+        #        login-password: 123456
+        reset-enable: true
+        url-pattern: "/druid/*"
+        allow: ${DRUID_WHITELIST:10.10.0.0/16}
+      filters: stat,wall,slf4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      useGlobalDataSourceStat: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        profile-enable: true
+      aop-patterns: ai.shanshu.stardust.web.*,ai.shanshu.stardust.service.*,ai.shanshu.stardust.dao.mapper.*
+      filter:
+        slf4j:
+          enabled: true
+          statement-executable-sql-log-enable: true
+#  redis:
+#    database: ${REDIS_DATABASE:0}
+#    host: ${REDIS_HOST:10.2.200.5}
+#    port: ${REDIS_PORT:31026}
+#    password: ${REDIS_PASSWORD:ShanshuRedisDev2019$}
+#    lettuce:
+#      pool:
+#        max-active: 8
+#        min-idle: 0
+#        max-idle: 8
+#        max-wait: 600000
+#    timeout: 5000
+#  main:
+#    allow-bean-definition-overriding: true
+#  profiles:
+    active: ${PROFILES_ACTIVE:local}
+
+# 线程池的配置文件
+threads:
+  pool:
+    queueCapacity: 50
+    corePoolSize: 20
+    maxPoolSize: 20
+    keepAliveSeconds: 600
+
+mybatis-plus:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: ai.shanshu.stardust
+  global-config:
+    id-type: 2
+    field-strategy: 0
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
+server:
+  port: 8801
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout:  30000 #Feign的连接建立超时时间，默认为10秒
+        readTimeout: 60000  # Feign的请求处理超时时间，默认为60
+
+optimize:
+#  resource-base-path: ${RESOURCE_BASE_PATH:${user.home}/stardust-engine/csv} #本地测试开启
+  resource-base-path: ${RESOURCE_BASE_PATH:/orion}
+  optimize-queue-name: ${OPTIMIZE_QUEUE_NAME:dev.orion.stardust.engine.optimize}
+  result-queue-name: ${RESULT_QUEUE_NAME:dev.orion.stardust.engine.result}
+  log-queue-name: ${LOG_QUEUE_NAME:dev.orion.stardust.engine.log}
+  error-queue-name: ${ERROR_QUEUE_NAME:dev.orion.stardust.engine.error}
+
+
+
+

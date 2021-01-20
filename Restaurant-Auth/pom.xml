@@ -19,9 +19,20 @@
         <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <common-version>0.0.1-SNAPSHOT</common-version>
+        <servicebus.version>2.1.7</servicebus.version>
         <javax-jms.version>2.0.1</javax-jms.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-eventhubs</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
+            <version>${servicebus.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
