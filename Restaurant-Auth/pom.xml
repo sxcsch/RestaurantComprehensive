@@ -23,16 +23,7 @@
         <javax-jms.version>2.0.1</javax-jms.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-messaging-eventhubs</artifactId>
-            <version>5.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
-            <version>${servicebus.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
@@ -42,7 +33,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -85,11 +79,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
-        <!--			<dependency>-->
-        <!--				<groupId>redis.clients</groupId>-->
-        <!--				<artifactId>jedis</artifactId>-->
-        <!--				<version>2.9.0</version>-->
-        <!--			</dependency>-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -153,7 +142,12 @@
             <version>2.8.0</version>
         </dependency>
         <!--Swagger 依赖结束-->
-
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-servicebus</artifactId>
+            <version>2.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
 
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
@@ -161,11 +155,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>ai.shanshu.nebula</groupId>
-            <artifactId>nebula-common</artifactId>
-            <version>${common-version}</version>
         </dependency>
 
         <dependency>

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: stardust-backend
+    name: auth
   cloud:
     nacos:
       discovery:

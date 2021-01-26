@@ -6,7 +6,7 @@ spring:
       idle-timeout: ${SERVICE_BUS_IDLE_TIMEOUT:1800000}
       topic-client-id: ${SERVICE_BUS_TOPIC_CLIENT_ID:client_test_1}
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:10.2.1.7}:${MYSQL_PORT:3306}/${DB_NAME:orion_scm}?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&rewriteBatchedStatements=TRUE&allowMultiQueries=true
     username: ${MYSQL_USERNAME:orion}
     password: ${MYSQL_PASSWORD:oRiOn#02080202}

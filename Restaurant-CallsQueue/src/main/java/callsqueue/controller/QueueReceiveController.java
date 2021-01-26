@@ -10,7 +10,7 @@ public class QueueReceiveController {
 
     @JmsListener(destination = "${optimize.error-queue-name}", containerFactory = "topicJmsListenerContainerFactory"
                     , subscription = "${optimize.error-queue-name}")
-    public void receiveMessage(String user) {
-        log.error("Received message: {}", user);
+    public void receiveMessage(String text) {
+        log.error("Received message: {}", text);
     }
 }

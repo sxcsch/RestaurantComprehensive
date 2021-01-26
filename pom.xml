@@ -12,6 +12,7 @@
         <module>Restaurant-Auth</module>
         <module>Restaurant-Common</module>
         <module>Restaurant-CallsQueue</module>
+        <module>Restaurant-Simple</module>
     </modules>
     <properties>
         <java.version>8</java.version>
@@ -42,7 +43,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>aurora-backend</finalName>
+        <finalName>restaurant</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

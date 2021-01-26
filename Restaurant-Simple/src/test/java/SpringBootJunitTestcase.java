@@ -1,21 +1,19 @@
-import auth.AuthApplication;
-import auth.client.LocalQueueClient;
 import com.microsoft.azure.servicebus.IMessage;
 import com.microsoft.azure.servicebus.IMessageReceiver;
 import com.microsoft.azure.servicebus.IMessageSender;
 import com.microsoft.azure.servicebus.Message;
-import com.microsoft.azure.servicebus.TransactionContext;
-import com.microsoft.azure.servicebus.primitives.MessagingFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import simple.SimpleApplication;
+import simple.client.LocalQueueClient;
 
 @RunWith(SpringRunner.class)
 @EnableAutoConfiguration
-@SpringBootTest(classes = AuthApplication.class)
+@SpringBootTest(classes = SimpleApplication.class)
 public class SpringBootJunitTestcase {
 
     @Autowired
